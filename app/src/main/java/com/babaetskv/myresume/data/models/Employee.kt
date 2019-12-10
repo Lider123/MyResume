@@ -6,6 +6,7 @@ package com.babaetskv.myresume.data.models
 data class Employee(
     val firstName: String,
     val lastName: String,
+    val photoUrl: String,
     val position: String,
     val summary: String,
     val skills: List<Skill>,
