@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import com.babaetskv.myresume.data.models.Skill
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.util.ArrayList
@@ -31,6 +32,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         profile_summary.text = summary
+        ViewCompat.setNestedScrollingEnabled(profile_skill_list, false)
     }
 
     companion object {

@@ -10,7 +10,7 @@ import com.babaetskv.myresume.data.models.*
 fun provideEmployee() = Employee(
     firstName = "Konstantin",
     lastName = "Babaets",
-    photoUrl = "https://picsum.photos/200",
+    photoUrl = "https://loremflickr.com/600/600/cat",
     position = "Android developer",
     summary = "Lorem ipsum",
     phone = "",
