@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             .placeholder(R.drawable.placeholder)
             .error(R.drawable.error)
             .into(employee_photo)
-        employee_name.text = "${employee.firstName} ${employee.lastName}"
+        employee_name.text = "%s %s".format(employee.firstName, employee.lastName)
         employee_position.text = employee.position
     }
 
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                     employee.skills
                 )
                 1 -> ProjectsFragment.createInstance(employee.projects)
-                2 -> Fragment()
+                2 -> EmploymentFragment.createInstance(employee.employment)
                 3 -> EducationFragment.createInstance(employee.education)
                 else -> Fragment()
             }

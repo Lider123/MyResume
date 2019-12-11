@@ -47,7 +47,7 @@ fun provideProjects(): List<Project> {
 
 fun provideEmployment(): List<Employment> {
     val employment = arrayListOf<Employment>()
-    employment.add(Employment("Kreograf", "https://creograf.ru/", "2016", "2016"))
-    employment.add(Employment("Intersvyaz", "https://www.is74.ru/", "2017", "2019"))
+    employment.add(Employment("Kreograf", "https://creograf.ru/", "Desription", "2016", "2016"))
+    employment.add(Employment("Intersvyaz", "https://www.is74.ru/", "Desription", "2017", "2019"))
     return employment
 }
