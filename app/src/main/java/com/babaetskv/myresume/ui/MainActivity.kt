@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
                 )
                 1 -> ProjectsFragment.createInstance(employee.projects)
                 2 -> Fragment()
-                3 -> Fragment()
+                3 -> EducationFragment.createInstance(employee.education)
                 else -> Fragment()
             }
         }

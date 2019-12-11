@@ -33,8 +33,8 @@ fun provideSkills(): List<Skill> {
 
 fun provideEducation(): List<University> {
     val universities = arrayListOf<University>()
-    universities.add(University("South Ural State University", "https://www.susu.ru/", "2013", "2017", "Statistics"))
-    universities.add(University("South Ural State University", "https://www.susu.ru/", "2017", "2019", "IT"))
+    universities.add(University("South Ural State University", "2013", "2017", "Statistics"))
+    universities.add(University("South Ural State University", "2017", "2019", "IT"))
     return universities
 }
 
