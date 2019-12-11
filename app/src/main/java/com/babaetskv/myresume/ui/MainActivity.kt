@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     private fun initHeader() {
         Picasso.get()
             .load(employee.photoUrl)
-            .placeholder(R.drawable.placeholder)
+            .placeholder(R.drawable.placeholder_avatar)
             .error(R.drawable.error)
             .into(employee_photo)
         employee_name.text = "%s %s".format(employee.firstName, employee.lastName)

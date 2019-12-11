@@ -9,15 +9,22 @@ import android.os.Parcelable
 data class Project(
     val projectName: String,
     val description: String,
-    val projectUrl: String
+    val projectUrl: String,
+    val imageUrl: String
 ) : Parcelable {
 
-    constructor(parcel: Parcel) : this(parcel.readString()!!, parcel.readString()!!, parcel.readString()!!)
+    constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(projectName)
         parcel.writeString(description)
         parcel.writeString(projectUrl)
+        parcel.writeString(imageUrl)
     }
 
     override fun describeContents() = 0

@@ -40,8 +40,8 @@ fun provideEducation(): List<University> {
 
 fun provideProjects(): List<Project> {
     val projects = arrayListOf<Project>()
-    projects.add(Project("MyResume", "Simple resume for getting cool job as android developer", "https://github.com/Lider123/MyResume"))
-    projects.add(Project("DesireGallery", "Simple gallery with all android technics", "https://github.com/Lider123/mobile_desiregallery"))
+    projects.add(Project("MyResume", "Simple resume for getting cool job as android developer", "https://github.com/Lider123/MyResume", ""))
+    projects.add(Project("DesireGallery", "Simple gallery with all android technics", "https://github.com/Lider123/mobile_desiregallery", "https://raw.githubusercontent.com/Lider123/mobile_desiregallery/develop/app/src/main/ic_launcher-web.png"))
     return projects
 }
 

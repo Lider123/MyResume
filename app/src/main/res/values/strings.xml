@@ -12,6 +12,6 @@
     <string name="no_permission_call">Cannot make call. Have you granted necessary permission?</string>
     <string name="no_permission_sms">Cannot send SMS. Have you granted necessary permission?</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder_avatar text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
