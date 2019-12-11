@@ -14,6 +14,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.babaetskv.myresume.R
 import com.babaetskv.myresume.data.helpers.provideEmployee
+import com.babaetskv.myresume.ui.fragments.EducationFragment
+import com.babaetskv.myresume.ui.fragments.EmploymentFragment
+import com.babaetskv.myresume.ui.fragments.ProfileFragment
+import com.babaetskv.myresume.ui.fragments.ProjectsFragment
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_main.*

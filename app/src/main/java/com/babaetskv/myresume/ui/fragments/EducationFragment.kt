@@ -1,8 +1,7 @@
-package com.babaetskv.myresume.ui
+package com.babaetskv.myresume.ui.fragments
 
 
 import android.os.Bundle
-import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View

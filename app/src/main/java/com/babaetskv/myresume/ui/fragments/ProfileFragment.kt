@@ -1,4 +1,4 @@
-package com.babaetskv.myresume.ui
+package com.babaetskv.myresume.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
