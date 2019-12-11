@@ -10,4 +10,5 @@
     <string name="skills_title">Key Skills</string>
 
     <string name="no_permission_call">Cannot make call. Have you granted necessary permission?</string>
+    <string name="no_permission_sms">Cannot send SMS. Have you granted necessary permission?</string>
 </resources>

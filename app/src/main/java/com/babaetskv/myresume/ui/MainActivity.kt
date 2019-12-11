@@ -39,9 +39,11 @@ class MainActivity : AppCompatActivity() {
             PERMISSION_CALL_REQUEST_CODE -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:${employee.phone}"))
                 startActivity(intent)
-            } else {
-                Toast.makeText(this, getString(R.string.no_permission_call), Toast.LENGTH_LONG).show()
-            }
+            } else Toast.makeText(this, getString(R.string.no_permission_call), Toast.LENGTH_LONG).show()
+            PERMISSION_SMS_REQUEST_CODE -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("sms:${employee.phone}"))
+                startActivity(intent)
+            } else Toast.makeText(this, getString(R.string.no_permission_sms), Toast.LENGTH_LONG).show()
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
@@ -68,11 +70,15 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, permissions, PERMISSION_CALL_REQUEST_CODE)
         }
         action_email.setOnClickListener {  }
-        action_message.setOnClickListener {  }
+        action_message.setOnClickListener {
+            val permissions = arrayOf(Manifest.permission.SEND_SMS)
+            ActivityCompat.requestPermissions(this, permissions, PERMISSION_SMS_REQUEST_CODE)
+        }
     }
 
     companion object {
         private const val PERMISSION_CALL_REQUEST_CODE = 101
+        private const val PERMISSION_SMS_REQUEST_CODE = 102
     }
 
     private inner class MainFragmentPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
