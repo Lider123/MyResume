@@ -13,24 +13,42 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.babaetskv.myresume.R
+import com.babaetskv.myresume.data.IApi
 import com.babaetskv.myresume.data.helpers.provideEmployee
+import com.babaetskv.myresume.data.models.Employee
 import com.babaetskv.myresume.ui.fragments.EducationFragment
 import com.babaetskv.myresume.ui.fragments.EmploymentFragment
 import com.babaetskv.myresume.ui.fragments.ProfileFragment
 import com.babaetskv.myresume.ui.fragments.ProjectsFragment
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_main.*
+import retrofit2.Call
+import retrofit2.Response
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
-    private val employee = provideEmployee()
+    private lateinit var employee: Employee
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        initHeader()
-        initPager()
-        setActions()
+        IApi.createService().getEmployee().enqueue(object: retrofit2.Callback<Employee> {
+
+            override fun onFailure(call: Call<Employee>, t: Throwable) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onResponse(call: Call<Employee>, response: Response<Employee>) {
+                response.body()?.let {
+                    employee = it
+                    initHeader()
+                    initPager()
+                    setActions()
+                }
+            }
+        })
     }
 
     @SuppressLint("MissingPermission")

@@ -1,12 +1,20 @@
 package com.babaetskv.myresume.data.models
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * @author babaetskv on 10.12.19
  */
 data class Employee(
+    @SerializedName("first_name")
     val firstName: String,
+
+    @SerializedName("last_name")
     val lastName: String,
+
+    @SerializedName("photo_url")
     val photoUrl: String,
+
     val position: String,
     val summary: String,
     val skills: List<Skill>,
