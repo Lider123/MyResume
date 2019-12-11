@@ -1,7 +1,14 @@
 package com.babaetskv.myresume.ui
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -19,6 +26,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initHeader()
         initPager()
+        setActions()
+    }
+
+    @SuppressLint("MissingPermission")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            PERMISSION_CALL_REQUEST_CODE -> if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:${employee.phone}"))
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, getString(R.string.no_permission_call), Toast.LENGTH_LONG).show()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private fun initHeader() {
@@ -35,6 +60,19 @@ class MainActivity : AppCompatActivity() {
         val adapter = MainFragmentPagerAdapter(supportFragmentManager)
         view_pager.adapter = adapter
         sliding_tabs.setupWithViewPager(view_pager)
+    }
+
+    private fun setActions() {
+        action_call.setOnClickListener {
+            val permissions = arrayOf(Manifest.permission.CALL_PHONE)
+            ActivityCompat.requestPermissions(this, permissions, PERMISSION_CALL_REQUEST_CODE)
+        }
+        action_email.setOnClickListener {  }
+        action_message.setOnClickListener {  }
+    }
+
+    companion object {
+        private const val PERMISSION_CALL_REQUEST_CODE = 101
     }
 
     private inner class MainFragmentPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
