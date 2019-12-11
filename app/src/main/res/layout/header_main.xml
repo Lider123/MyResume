@@ -31,6 +31,7 @@
             android:textSize="18sp"
             android:maxLines="1"
             android:ellipsize="end"
+            android:textStyle="bold"
             tools:text="John Doe"/>
 
         <TextView

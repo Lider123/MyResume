@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">MyResume</string>
+
+    <string name="title_profile">Profile</string>
+    <string name="title_projects">Projects</string>
+    <string name="title_employment">Employment</string>
+    <string name="title_education">Education</string>
+
     <string name="summary_title">Professional Summary</string>
     <string name="skills_title">Key Skills</string>
 </resources>
