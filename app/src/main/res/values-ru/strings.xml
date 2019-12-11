@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyResume</string>
+    <string name="no_permission_call">Невозможно совершить звонок. Нет необходимого разрешения</string>
+    <string name="no_permission_sms">Невозможно отправить SMS. Нет необходимого разрешения</string>
+    <string name="skills_title">Ключевые навыки</string>
+    <string name="summary_title">Обо мне</string>
+    <string name="title_education">Образование</string>
+    <string name="title_employment">Опыт работы</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_projects">Проекты</string>
+</resources>

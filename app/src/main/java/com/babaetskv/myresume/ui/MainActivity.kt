@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         IApi.createService().getEmployee().enqueue(object: retrofit2.Callback<Employee> {
 
             override fun onFailure(call: Call<Employee>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                t.printStackTrace()
             }
 
             override fun onResponse(call: Call<Employee>, response: Response<Employee>) {
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     initHeader()
                     initPager()
                     setActions()
-                }
+                } ?: Log.e("MainActivity", "Response received an empty body")
             }
         })
     }
