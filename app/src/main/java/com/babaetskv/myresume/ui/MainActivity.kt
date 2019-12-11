@@ -69,7 +69,13 @@ class MainActivity : AppCompatActivity() {
             val permissions = arrayOf(Manifest.permission.CALL_PHONE)
             ActivityCompat.requestPermissions(this, permissions, PERMISSION_CALL_REQUEST_CODE)
         }
-        action_email.setOnClickListener {  }
+        action_email.setOnClickListener {
+            Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:${employee.email}")
+            }.let {
+                startActivity(it)
+            }
+        }
         action_message.setOnClickListener {
             val permissions = arrayOf(Manifest.permission.SEND_SMS)
             ActivityCompat.requestPermissions(this, permissions, PERMISSION_SMS_REQUEST_CODE)
