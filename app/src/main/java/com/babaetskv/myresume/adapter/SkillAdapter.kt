@@ -1,8 +1,9 @@
-package com.babaetskv.myresume
+package com.babaetskv.myresume.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.babaetskv.myresume.R
 import com.babaetskv.myresume.data.models.Skill
 import com.babaetskv.myresume.ui.SkillViewHolder
 

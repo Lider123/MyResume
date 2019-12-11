@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     employee.summary,
                     employee.skills
                 )
-                1 -> Fragment()
+                1 -> ProjectsFragment.createInstance(employee.projects)
                 2 -> Fragment()
                 3 -> Fragment()
                 else -> Fragment()

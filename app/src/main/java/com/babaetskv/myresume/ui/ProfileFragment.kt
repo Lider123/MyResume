@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.babaetskv.myresume.R
-import com.babaetskv.myresume.SkillAdapter
+import com.babaetskv.myresume.adapter.SkillAdapter
 import com.babaetskv.myresume.data.models.Skill
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.util.ArrayList
