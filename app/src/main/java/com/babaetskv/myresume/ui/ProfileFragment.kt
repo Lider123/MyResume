@@ -1,4 +1,4 @@
-package com.babaetskv.myresume
+package com.babaetskv.myresume.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.ViewCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.babaetskv.myresume.R
+import com.babaetskv.myresume.SkillAdapter
 import com.babaetskv.myresume.data.models.Skill
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.util.ArrayList
@@ -32,7 +35,15 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         profile_summary.text = summary
+        initSkillsList()
+    }
+
+    private fun initSkillsList() {
         ViewCompat.setNestedScrollingEnabled(profile_skill_list, false)
+        profile_skill_list.layoutManager = LinearLayoutManager(requireContext())
+        skills?.let {
+            profile_skill_list.adapter = SkillAdapter(it)
+        }
     }
 
     companion object {

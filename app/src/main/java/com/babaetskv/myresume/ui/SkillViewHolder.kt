@@ -1,10 +1,11 @@
-package com.babaetskv.myresume
+package com.babaetskv.myresume.ui
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.babaetskv.myresume.R
 import com.babaetskv.myresume.data.models.Skill
 import com.squareup.picasso.Picasso
 

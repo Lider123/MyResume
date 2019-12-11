@@ -1,17 +1,15 @@
-package com.babaetskv.myresume
+package com.babaetskv.myresume.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.babaetskv.myresume.R
 import com.babaetskv.myresume.data.helpers.provideEmployee
-import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_main.*
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     private val employee = provideEmployee()
@@ -43,7 +41,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> ProfileFragment.createInstance(employee.summary, employee.skills)
+                0 -> ProfileFragment.createInstance(
+                    employee.summary,
+                    employee.skills
+                )
                 1 -> Fragment()
                 2 -> Fragment()
                 3 -> Fragment()
