@@ -15,6 +15,8 @@ data class Employee(
     @SerializedName("photo_url")
     val photoUrl: String,
 
+    val birthday: String,
+    val presence: String,
     val position: String,
     val summary: String,
     val skills: List<Skill>,

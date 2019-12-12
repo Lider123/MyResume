@@ -25,6 +25,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_main.*
 import retrofit2.Call
 import retrofit2.Response
+import java.lang.StringBuilder
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var employee: Employee
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         IApi.createService().getEmployee().enqueue(object: retrofit2.Callback<Employee> {
 
             override fun onFailure(call: Call<Employee>, t: Throwable) {
@@ -76,6 +80,15 @@ class MainActivity : AppCompatActivity() {
             .into(employee_photo)
         employee_name.text = "%s %s".format(employee.firstName, employee.lastName)
         employee_position.text = employee.position
+        employee_info.text = StringBuilder().append(dateToAge(employee.birthday)).append(", ").append(employee.presence).toString()
+    }
+
+    private fun dateToAge(date: String): Int {
+        val dateCal = Calendar.getInstance().apply {
+            time = SimpleDateFormat("dd.MM.yyyy").parse(date)
+        }
+        val today = Calendar.getInstance()
+        return today.get(Calendar.YEAR) - dateCal.get(Calendar.YEAR)
     }
 
     private fun initPager() {

@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:padding="8dp"
+            android:autoLink="web"
             tools:text="@tools:sample/lorem"/>
 
         <TextView
