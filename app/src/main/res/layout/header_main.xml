@@ -1,88 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp"
-    android:background="@color/colorPrimary">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/employee_photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
-        tools:src="@tools:sample/avatars"/>
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
         android:padding="8dp"
-        android:layout_weight="1">
+        android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/employee_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorOnPrimary"
-            android:textSize="18sp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textStyle="bold"
-            tools:text="John Doe"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/employee_photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="8dp"
+            tools:src="@tools:sample/avatars"/>
 
-        <TextView
-            android:id="@+id/employee_position"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorOnPrimary"
-            android:textSize="16sp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            tools:text="Android Developer"/>
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="8dp"
+            android:layout_weight="1">
 
-        <TextView
-            android:id="@+id/employee_info"
-            android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/employee_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorOnPrimary"
+                android:textSize="18sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                tools:text="John Doe"/>
+
+            <TextView
+                android:id="@+id/employee_position"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorOnPrimary"
+                android:textSize="16sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="Android Developer"/>
+
+            <TextView
+                android:id="@+id/employee_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorOnPrimary"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="21, Moscow, Russia"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorOnPrimary"
-            android:textSize="14sp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            tools:text="21, Moscow, Russia"/>
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <ImageButton
+                android:id="@+id/action_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_call_white_24dp"
+                android:padding="8dp"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/action_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_message_white_24dp"
+                android:padding="8dp"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:id="@+id/action_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_email_white_24dp"
+                android:padding="8dp"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
-        <ImageButton
-            android:id="@+id/action_call"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_call_white_24dp"
-            android:padding="8dp"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:id="@+id/action_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_message_white_24dp"
-            android:padding="8dp"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:id="@+id/action_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_email_white_24dp"
-            android:padding="8dp"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-</LinearLayout>
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+</RelativeLayout>

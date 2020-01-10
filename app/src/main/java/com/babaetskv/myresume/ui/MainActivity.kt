@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -24,6 +25,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.header_main.*
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.lang.StringBuilder
 import java.text.SimpleDateFormat
@@ -36,13 +38,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        IApi.createService().getEmployee().enqueue(object: retrofit2.Callback<Employee> {
+        progress_bar.visibility = View.VISIBLE
+        IApi.createService().getEmployee().enqueue(object: Callback<Employee> {
 
             override fun onFailure(call: Call<Employee>, t: Throwable) {
+                progress_bar.visibility = View.GONE
+                Toast.makeText(this@MainActivity, R.string.error_download, Toast.LENGTH_LONG).show()
                 t.printStackTrace()
             }
 
             override fun onResponse(call: Call<Employee>, response: Response<Employee>) {
+                progress_bar.visibility = View.GONE
                 response.body()?.let {
                     employee = it
                     initHeader()
